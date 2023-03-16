@@ -1,4 +1,4 @@
-import React, { useState, useCallback,Component,ReactNode } from 'react';
+import React, { useState, useCallback} from 'react';
 import clsx from 'clsx';
 import { useDropzone } from 'react-dropzone';
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -14,6 +14,7 @@ import {
   ListItemText,
   Tooltip,
   Typography,
+  ListItem
   //makeStyles,
 } from '@mui/material';
 
@@ -27,7 +28,7 @@ type Props = {
 };
 
 const FilesDropzone = ({ className, ...rest }: Props) => {
-  const classes = useStyles();
+  const {classes} = useStyles();
   const [files, setFiles] = useState<any[]>([]);
   const handleDrop = useCallback(acceptedFiles => {
     setFiles(prevFiles => [...prevFiles].concat(acceptedFiles));
@@ -107,11 +108,8 @@ const FilesDropzone = ({ className, ...rest }: Props) => {
   );
 };
 
-interface PropsStyles{
-  children:React.ReactNode;
-  
-  }
-const useStyles = makeStyles<PropsStyles>(theme => ({
+
+const useStyles = makeStyles()(theme => ({
   root: {},
   dropZone: {
     border: `1px dashed ${theme.palette.divider}`,

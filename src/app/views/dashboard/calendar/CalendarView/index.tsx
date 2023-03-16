@@ -230,7 +230,7 @@ const selectedEventSelector = (state: RootState): EventType | null => {
   }
 };
 
-const useStyles = makeStyles()((theme:Theme) => ({
+const useStyles = makeStyles()(theme => ({
   root: {
     minHeight: '100%',
     paddingTop: theme.spacing(3),
@@ -306,4 +306,4 @@ const useStyles = makeStyles()((theme:Theme) => ({
       ...theme.typography.body2,
     },
   },
-}));
+});

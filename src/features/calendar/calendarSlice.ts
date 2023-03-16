@@ -13,11 +13,11 @@ export type AppThunk = ThunkAction<void, RootState, null, Action<string>>;
 interface CalendarState {
   events: EventType[];
   isModalOpen: boolean;
-  selectedEventId?: string;
+  selectedEventId?: string|null;
   selectedRange?: {
     start: number;
     end: number;
-  };
+  }|null;
   loading: boolean;
   error: string;
 }
@@ -113,6 +113,7 @@ export const closeModal = (): AppThunk => dispatch => {
 /*Asynchronous actions. Actions that require Axios (HTTP client)
  or any APIs of a library or function that returns a promise.*/
 
+ 
 export const getEvents = (): AppThunk => async dispatch => {
   dispatch(slice.actions.setLoading(true));
   dispatch(slice.actions.setError(''));

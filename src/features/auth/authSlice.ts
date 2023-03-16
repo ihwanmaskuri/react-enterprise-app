@@ -5,7 +5,7 @@ const authNamespace = 'auth';
 
 export type AuthStateType = {
   readonly accessToken: string;
-  readonly claims: ClaimsType;
+  readonly claims: ClaimsType | null;
 };
 
 export const initialState: AuthStateType = {

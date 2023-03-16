@@ -1,11 +1,11 @@
-import React from 'react';
-import clsx from 'clsx';
-import { Theme, withStyles } from '@mui/material/styles';
-import Menu, { MenuProps } from '@mui/material/Menu';
-import { LogOut as LogOutIcon, Hexagon as HexagonIcon } from 'react-feather';
-import { useSelector } from 'react-redux';
-import { RootState } from 'store/reducers';
-import { createStyles } from '@mui/material/styles';
+import React from "react";
+import clsx from "clsx";
+import { Theme, withStyles } from "@mui/material/styles";
+import Menu, { MenuProps } from "@mui/material/Menu";
+import { LogOut as LogOutIcon, Hexagon as HexagonIcon } from "react-feather";
+import { useSelector } from "react-redux";
+import { RootState } from "store/reducers";
+import { createStyles } from "@mui/material/styles";
 import {
   Avatar,
   Box,
@@ -14,10 +14,10 @@ import {
   ListItemText,
   makeStyles,
   MenuItem,
-} from '@mui/material';
+} from "@mui/material";
 
 const HeaderProfile = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const { profile } = useSelector((state: RootState) => state.profile);
 
@@ -39,7 +39,7 @@ const HeaderProfile = () => {
     <div>
       <Box display="flex" justifyContent="center" onClick={handleClick}>
         <Avatar
-          variant={'circle'}
+          variant={"circle"}
           alt="User"
           className={clsx(classes.avatar, classes.small)}
           src={profile.avatar}
@@ -62,7 +62,7 @@ const HeaderProfile = () => {
           </ListItemIcon>
           <ListItemText primary="Partners" />
         </MenuItem>
-        <a className={classes.link} href={'/'}>
+        <a className={classes.link} href={"/"}>
           <MenuItem onClick={handleLogout}>
             <ListItemIcon>
               <LogOutIcon />
@@ -80,33 +80,33 @@ export default HeaderProfile;
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     avatar: {
-      cursor: 'pointer',
+      cursor: "pointer",
       width: 64,
       height: 64,
     },
-    link: { textDecoration: 'none', color: 'inherit' },
+    link: { textDecoration: "none", color: "inherit" },
     small: {
       width: theme.spacing(3),
       height: theme.spacing(3),
     },
-  }),
+  })
 );
 
 const StyledMenu = withStyles({
   paper: {
-    border: '1px solid #d3d4d5',
+    border: "1px solid #d3d4d5",
   },
 })((props: MenuProps) => (
   <Menu
     elevation={0}
     getContentAnchorEl={null}
     anchorOrigin={{
-      vertical: 'bottom',
-      horizontal: 'center',
+      vertical: "bottom",
+      horizontal: "center",
     }}
     transformOrigin={{
-      vertical: 'top',
-      horizontal: 'center',
+      vertical: "top",
+      horizontal: "center",
     }}
     {...props}
   />

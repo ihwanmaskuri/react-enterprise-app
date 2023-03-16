@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@mui/material/styles';
+import { makeStyles } from 'tss-react/mui';
 import { Box, Button, Container, Divider } from '@mui/material';
 
 import LoginForm from './components/LoginForm';
@@ -7,7 +7,7 @@ import RegisterForm from './components/RegisterForm';
 import Page from 'app/components/page';
 
 const LoginPage = () => {
-  const classes = useStyles();
+  const {classes} = useStyles();
   const [isLogin, setIsLogin] = useState(true);
 
   return (
@@ -50,7 +50,7 @@ const LoginPage = () => {
   );
 };
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles()(() => ({
   root: {},
 }));
 

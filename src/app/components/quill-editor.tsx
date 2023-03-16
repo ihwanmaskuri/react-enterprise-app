@@ -1,19 +1,19 @@
 import React from 'react';
 import clsx from 'clsx';
 import ReactQuill from 'react-quill';
-import { makeStyles } from '@material-ui/core';
-
+//import { makeStyles } from '@material-ui/core';
+import {makeStyles} from 'tss-react/mui'
 type Props = {
   className?: string;
   [key: string]: any;
 };
 
 const QuillEditor = ({ className, ...rest }: Props) => {
-  const classes = useStyles();
+  const {classes} = useStyles();
   return <ReactQuill className={clsx(classes.root, className)} {...rest} />;
 };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   root: {
     '& .ql-toolbar': {
       borderLeft: 'none',

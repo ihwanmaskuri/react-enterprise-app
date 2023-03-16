@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
 import clsx from 'clsx';
-import { fade, makeStyles } from '@mui/material';
+//import { fade} from '@mui/material';
+import {} from '@mui/material/styles'
+import {makeStyles} from 'tss-react/mui'
 
 type Props = {
   className?: string;
@@ -16,7 +18,7 @@ const Label = ({
   style,
   ...rest
 }: Props) => {
-  const classes = useStyles();
+  const {classes} = useStyles();
 
   return (
     <span
@@ -34,7 +36,7 @@ const Label = ({
   );
 };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   root: {
     fontFamily: theme.typography.fontFamily,
     alignItems: 'center',
@@ -55,23 +57,23 @@ const useStyles = makeStyles(theme => ({
   },
   primary: {
     color: theme.palette.primary.main,
-    backgroundColor: fade(theme.palette.primary.main, 0.08),
+    backgroundColor:theme.palette.primary.main, //{/*fade(theme.palette.primary.main, 0.08),*/}
   },
   secondary: {
     color: theme.palette.secondary.main,
-    backgroundColor: fade(theme.palette.secondary.main, 0.08),
+    backgroundColor: theme.palette.secondary.main //fade(theme.palette.secondary.main, 0.08),
   },
   error: {
     color: theme.palette.error.main,
-    backgroundColor: fade(theme.palette.error.main, 0.08),
+    backgroundColor:theme.palette.error.main // fade(theme.palette.error.main, 0.08),
   },
   success: {
     color: theme.palette.success.main,
-    backgroundColor: fade(theme.palette.success.main, 0.08),
+    backgroundColor: theme.palette.success.main // fade(theme.palette.success.main, 0.08),
   },
   warning: {
     color: theme.palette.warning.main,
-    backgroundColor: fade(theme.palette.warning.main, 0.08),
+    backgroundColor:theme.palette.success.main// fade(theme.palette.warning.main, 0.08),
   },
 }));
 

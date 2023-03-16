@@ -30,7 +30,7 @@ const Header = ({ className, ...rest }: Props) => {
     <Grid
       container
       spacing={3}
-      justify="space-between"
+     // justify="space-between"
       className={clsx(classes.root, className)}
       {...rest}
     >

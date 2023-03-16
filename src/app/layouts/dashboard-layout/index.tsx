@@ -1,7 +1,7 @@
-import React from 'react';
+import React,{Component} from 'react';
 import { Grid, useMediaQuery } from '@mui/material';
-import { makeStyles } from '@mui/icons-material/styles';
-
+//import { makeStyles } from '@mui/icons-material/styles';
+import {makeStyles} from 'tss-react/mui'
 import DashboardSidebarNavigation from './dashboard-sidebar-navigation';
 import clsx from 'clsx';
 
@@ -10,14 +10,15 @@ type Props = {
 };
 
 const Dashboard = ({ children }: Props) => {
-  const classes = useStyles();
+  const {classes} = useStyles();
   const mobileDevice = useMediaQuery('(max-width:650px)');
 
   return (
+    <>
     <Grid
       container
-      direction="row"
-      justify="flex-start"
+     // direction="row"
+     // justify="flex-start"
       alignItems="flex-start"
     >
       <DashboardSidebarNavigation />{' '}
@@ -31,12 +32,13 @@ const Dashboard = ({ children }: Props) => {
         </div>
       </div>
     </Grid>
+    </>
   );
 };
 
 export default Dashboard;
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   content: {
     flex: '1 1 auto',
     height: '100%',

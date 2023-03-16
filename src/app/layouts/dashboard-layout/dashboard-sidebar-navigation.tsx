@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { createStyles, makeStyles } from '@mui/material/styles';
+import { createStyles,makeStyles} from '@mui/material/styles';
+//import {Theme} from '@mui/material'
+//import {makeStyles} from 'tss-react/mui';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { useRouteMatch } from 'react-router';
+//import { useRouteMatch } from 'react-router';
+import { useResolvedPath } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Avatar,
@@ -35,12 +38,12 @@ import { getProfileAction } from 'features/profile/profileAsyncActions';
 import clsx from 'clsx';
 
 const DashboardSidebarNavigation = () => {
-  const classes = useStyles();
+  const {classes} = useStyles();
   const dispatch = useDispatch();
   const { profile } = useSelector((state: RootState) => state.profile);
   const { claims } = useSelector((state: RootState) => state.auth);
   const [open, setOpen] = useState(false);
-  const { url } = useRouteMatch();
+  const  url  = useResolvedPath("").pathname;
   const mobileDevice = useMediaQuery('(max-width:650px)');
 
   useEffect(() => {

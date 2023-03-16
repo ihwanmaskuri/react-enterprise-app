@@ -8,13 +8,13 @@ import {
   Grid,
   Paper,
   Typography,
-  makeStyles,
+  //makeStyles,
 } from '@mui/material';
-
+import {makeStyles} from 'tss-react/mui'
 import Page from 'app/components/page';
 
 const PricingPage = () => {
-  const classes = useStyles();
+  const {classes} = useStyles();
 
   return (
     <Page className={classes.root} title="Pricing">
@@ -221,7 +221,7 @@ const PricingPage = () => {
   );
 };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   root: {
     minHeight: '100%',
     height: '100%',

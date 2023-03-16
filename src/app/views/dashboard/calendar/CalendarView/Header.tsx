@@ -28,7 +28,7 @@ const Header = ({ className, onAddClick, ...rest }: Props) => {
     <Grid
       className={clsx(classes.root, className)}
       container
-      justify="space-between"
+      //justify="space-between"
       spacing={3}
       {...rest}
     >

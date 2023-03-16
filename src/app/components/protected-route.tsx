@@ -1,18 +1,23 @@
 import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
+//import { Redirect, Route, RouteProps } from 'react-router-dom';
+import { Navigate, Route, RouteProps } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import jwt_decode from 'jwt-decode';
 
 import { saveClaimsAction } from 'features/auth/authSlice';
 import { ClaimsType } from 'models/claims-type';
 
-const ProtectedRoute = props => {
+//Declare interface  for parameter ProtecedRoute
+interface PropsRoute{
+  props:RouteProps
+}
+const ProtectedRoute =(props:PropsRoute) => {
   const dispatch = useDispatch();
   const token = localStorage.getItem('token');
 
   if (!token) {
     localStorage.clear();
-    return <Redirect to={{ pathname: '/login' }} />;
+    return <Navigate to={{ pathname: '/login' }} />;
   }
 
   const decoded: ClaimsType = jwt_decode(token);
@@ -24,7 +29,7 @@ const ProtectedRoute = props => {
   return isValid ? (
     <Route {...props} />
   ) : (
-    <Redirect to={{ pathname: '/login' }} />
+    <Navigate to={{ pathname: '/login' }} />
   );
 };
 
