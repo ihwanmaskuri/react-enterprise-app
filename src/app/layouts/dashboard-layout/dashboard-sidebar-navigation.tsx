@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { createStyles,makeStyles} from '@mui/material/styles';
-//import {Theme} from '@mui/material'
-//import {makeStyles} from 'tss-react/mui';
+//import { createStyles,makeStyles} from '@mui/material/styles';
+import {Theme} from '@mui/material/styles'
+import {makeStyles} from 'tss-react/mui';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -252,8 +252,8 @@ export default DashboardSidebarNavigation;
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles(theme =>
-  createStyles({
+const useStyles = makeStyles()((theme:Theme) =>
+  ({
     avatar: {
       cursor: 'pointer',
       width: 64,

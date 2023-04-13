@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React from 'react';
 import { Grid, useMediaQuery } from '@mui/material';
 //import { makeStyles } from '@mui/icons-material/styles';
 import {makeStyles} from 'tss-react/mui'

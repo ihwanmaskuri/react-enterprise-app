@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
-import { makeStyles } from '@material-ui/core';
+//import { makeStyles } from '@material-ui/core';
+import {makeStyles} from 'tss-react/mui'
 
 import NavigationBar from './navigation-bar';
 
@@ -8,7 +9,7 @@ type Props = {
 };
 
 const MainLayout = ({ children }: Props) => {
-  const classes = useStyles();
+  const {classes} = useStyles();
 
   return (
     <>
@@ -24,7 +25,7 @@ const MainLayout = ({ children }: Props) => {
   );
 };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()(theme => ({
   root: {
     backgroundColor: theme.palette.background.default,
     display: 'flex',

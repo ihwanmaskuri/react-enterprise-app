@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, Theme } from '@mui/material/styles';
+import {makeStyles} from 'tss-react/mui'
 import { RootState } from 'store/reducers';
 import HeaderProfile from 'app/components/header-profile';
 
@@ -11,10 +12,10 @@ import {
   Button,
   useMediaQuery,
   colors,
-} from '@material-ui/core';
+} from '@mui/material';
 
 export default function NavigationBar() {
-  const classes = useStyles();
+  const {classes} = useStyles();
   const { claims } = useSelector((state: RootState) => state.auth);
   const mobileDevice = useMediaQuery('(max-width:650px)');
 
@@ -58,8 +59,8 @@ export default function NavigationBar() {
   );
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
+const useStyles = makeStyles()((theme: Theme) =>
+  ({
     root: {
       flexGrow: 1,
     },

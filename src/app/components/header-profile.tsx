@@ -12,9 +12,10 @@ import {
   Divider,
   ListItemIcon,
   ListItemText,
-  makeStyles,
+  //makeStyles,
   MenuItem,
 } from "@mui/material";
+import {makeStyles} from 'tss-react/mui'
 
 const HeaderProfile = () => {
   const { classes } = useStyles();
@@ -39,7 +40,7 @@ const HeaderProfile = () => {
     <div>
       <Box display="flex" justifyContent="center" onClick={handleClick}>
         <Avatar
-          variant={"circle"}
+          variant={"rounded"}
           alt="User"
           className={clsx(classes.avatar, classes.small)}
           src={profile.avatar}
@@ -77,8 +78,8 @@ const HeaderProfile = () => {
 
 export default HeaderProfile;
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
+const useStyles = makeStyles()((theme: Theme) =>
+  ({
     avatar: {
       cursor: "pointer",
       width: 64,

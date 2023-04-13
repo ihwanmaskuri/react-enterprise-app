@@ -14,9 +14,9 @@ import {
   FormHelperText,
   Grid,
   TextField,
-  makeStyles,
-} from '@material-ui/core';
-
+  //makeStyles,
+} from '@mui/material';
+import {makeStyles} from 'tss-react/mui'
 import { changePasswordAxios, ChangePasswordModel } from 'services/authService';
 import { RootState } from 'store/reducers';
 
@@ -31,7 +31,7 @@ type PasswordType = {
 
 const Security = ({ className, ...rest }: Props) => {
   const { claims } = useSelector((state: RootState) => state.auth);
-  const classes = useStyles();
+  const {classes} = useStyles();
   const [error, setError] = useState('');
   const { enqueueSnackbar } = useSnackbar();
 
@@ -152,7 +152,7 @@ const Security = ({ className, ...rest }: Props) => {
   );
 };
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles()(() => ({
   root: {},
 }));
 
